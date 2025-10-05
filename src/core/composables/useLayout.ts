@@ -1,4 +1,4 @@
-export function useLayout() {
+function useLayout() {
   const layout = reactive({
     header: {
       height: "",
@@ -12,4 +12,4 @@ export function useLayout() {
   return { layout };
 }
 
-export default useLayout;
+export { useLayout };
