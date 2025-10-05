@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type IconName } from "@/core/models";
+import { type IconName } from "@/core/types";
 
 defineProps<{
   name: IconName;

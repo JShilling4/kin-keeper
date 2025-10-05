@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { layoutKey } from "@/core/models";
+import { layoutKey } from "@/core/types";
 
 const { layout: $layout } = useLayout();
 provide(layoutKey, $layout);

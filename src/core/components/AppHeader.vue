@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { layoutKey, ICON_NAMES, type ILayout } from "@/core/models";
+import { layoutKey, ICON_NAMES, type ILayout } from "@/core/types";
 
 const { height = "5rem" } = defineProps<{ height?: string }>();
 
@@ -29,7 +29,7 @@ function toggleLeftDrawer() {
         class="left-drawer-toggle"
         @click="toggleLeftDrawer"
       />
-      <div class="ml-sm text-white">App Name</div>
+      <div class="app-header-title">Kin Keeper</div>
     </div>
   </header>
 </template>
@@ -41,5 +41,10 @@ function toggleLeftDrawer() {
   width: 100%;
   height: v-bind(height);
   z-index: 2000;
+
+  &-title {
+    color: #fff;
+    margin-left: var(--space-sm);
+  }
 }
 </style>
