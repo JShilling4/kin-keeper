@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import Fonts from "unplugin-fonts/vite";
 import Components from "unplugin-vue-components/vite";
 import AutoImport from "unplugin-auto-import/vite";
 import { fileURLToPath, URL } from "node:url";
@@ -31,6 +32,26 @@ export default defineConfig({
       ],
       dts: "src/types/auto-imports.d.ts",
       vueTemplate: true,
+    }),
+
+    // https://github.com/cssninjaStudio/unplugin-fonts
+    Fonts({
+      google: {
+        // Adjust families and weights as needed
+        families: [
+          {
+            name: "Inter",
+            styles: "wght@100;200;300;400;500;600;700;800;900",
+          },
+          {
+            name: "Playfair Display",
+            styles: "wght@400;500;600;700;800;900",
+          },
+        ],
+        display: "swap",
+        preconnect: true,
+        injectTo: "head-prepend",
+      },
     }),
   ],
 
