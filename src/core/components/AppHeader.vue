@@ -25,6 +25,7 @@ watch(
 <style lang="scss" scoped>
 .app-header {
   position: fixed;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
   top: 0;
   left: v-bind("$layout.leftDrawer.width");
   width: 100%;
@@ -43,6 +44,9 @@ watch(
 
   &-title {
     color: #fff;
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 1.2px;
     transition: margin-left 0.3s ease-in-out;
   }
 }

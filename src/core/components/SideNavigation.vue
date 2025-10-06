@@ -34,12 +34,19 @@ const { miniMode = false } = defineProps<SideNavigationProps>();
   .navlink {
     display: grid;
     grid-template-columns: auto 1fr;
-    padding-bottom: var(--space-sm);
+    padding-top: var(--space-xs);
+    padding-bottom: var(--space-xs);
+    padding-left: 5px;
+    border-radius: var(--border-radius-reg);
     align-items: center;
     color: #fff;
 
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
     &-icon {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
       justify-self: center;
     }
 

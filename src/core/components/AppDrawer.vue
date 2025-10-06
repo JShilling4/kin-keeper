@@ -62,7 +62,7 @@ function toggleLeftDrawer() {
   top: 0;
   left: v-bind("side === 'left' ? 0 : 'initial'");
   right: v-bind("side === 'right' ? 0 : 'initial'");
-  height: calc(100vh - 5rem);
+  height: 100vh;
   width: v-bind("$layout.leftDrawer.width");
   overflow: hidden;
   background-color: v-bind(bgColor);
