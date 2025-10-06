@@ -42,7 +42,7 @@ function toggleLeftDrawer() {
 
 <template>
   <aside :class="['app-drawer', { 'app-drawer--hidden': !modelValue }]">
-    <BaseIcon
+    <AppIcon
       v-if="!$layout.leftDrawer.isFixed"
       :name="ICON_NAMES.Menu"
       color="#fff"

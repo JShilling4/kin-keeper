@@ -11,13 +11,13 @@ const { miniMode = false } = defineProps<SideNavigationProps>();
 <template>
   <div class="side-navigation">
     <router-link to="/" class="navlink">
-      <BaseIcon :name="ICON_NAMES.Home" class="navlink-icon" />
+      <AppIcon :name="ICON_NAMES.Home" class="navlink-icon" />
       <div class="navlink-text" :class="{ 'navlink-text--hidden': !miniMode }">
         Home
       </div>
     </router-link>
     <router-link to="/budget" class="navlink">
-      <BaseIcon :name="ICON_NAMES.Budget" class="navlink-icon" />
+      <AppIcon :name="ICON_NAMES.Budget" class="navlink-icon" />
       <div class="navlink-text" :class="{ 'navlink-text--hidden': !miniMode }">
         Budget
       </div>

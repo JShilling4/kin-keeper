@@ -28,6 +28,6 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: ROUTE_PATHS.Budget,
     name: ROUTE_NAMES.Budget,
-    component: () => import("@/views/Budget.vue"),
+    component: () => import("@/modules/budget/views/Budget.vue"),
   },
 ];

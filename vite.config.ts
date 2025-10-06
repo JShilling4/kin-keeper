@@ -3,12 +3,24 @@ import vue from "@vitejs/plugin-vue";
 import Fonts from "unplugin-fonts/vite";
 import Components from "unplugin-vue-components/vite";
 import AutoImport from "unplugin-auto-import/vite";
+import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 import { fileURLToPath, URL } from "node:url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: { transformAssetUrls },
+    }),
+
+    // @quasar/plugin-vite options list:
+    // https://github.com/quasarframework/quasar/blob/dev/vite-plugin/index.d.ts
+    quasar({
+      autoImportComponentCase: "pascal",
+      sassVariables: fileURLToPath(
+        new URL("./src/plugins/quasar/quasar-variables.scss", import.meta.url)
+      ),
+    }),
 
     // https://github.com/antfu/unplugin-vue-components
     Components({
