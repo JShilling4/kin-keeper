@@ -1,6 +1,7 @@
 export const ICON_NAMES = {
-  Home: "",
+  Home: "fas fa-home",
   Menu: "fas fa-bars",
+  Budget: "fas fa-chart-pie",
   Close: "",
   Route: "",
   Settings: "",

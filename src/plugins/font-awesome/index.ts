@@ -1,24 +1,7 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import {
-  faHouse,
-  faMagnifyingGlass,
-  faXmark,
-  faBars,
-  faDownload,
-  faPlus,
-  faMinus,
-  faCircleUser,
-  faCircleInfo,
-  faBell,
-  faHeart,
-  faStar,
-  faEnvelope,
-  faCheck,
-  faUser,
-  faLocationDot,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChartPie, faBars, faHome } from "@fortawesome/free-solid-svg-icons";
 import {
   faCalendarDays,
   faCircleXmark,
@@ -28,26 +11,13 @@ import {
 
 const initFaLibrary = () => {
   library.add(
-    faHouse,
-    faMagnifyingGlass,
+    faChartPie,
+    faCalendarDays,
     faCircleXmark,
     faImage,
-    faXmark,
-    faBars,
-    faDownload,
-    faPlus,
-    faMinus,
+    faHome,
     faPenToSquare,
-    faCircleUser,
-    faCircleInfo,
-    faBell,
-    faCalendarDays,
-    faHeart,
-    faStar,
-    faEnvelope,
-    faCheck,
-    faUser,
-    faLocationDot
+    faBars
   );
 };
 
