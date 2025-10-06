@@ -14,6 +14,7 @@ declare module 'vue' {
     BaseIcon: typeof import('./../core/components/BaseIcon.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SideNavigation: typeof import('./../core/components/SideNavigation.vue')['default']
     ViewContainer: typeof import('./../core/components/ViewContainer.vue')['default']
   }
 }

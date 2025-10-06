@@ -6,8 +6,12 @@ const $layout = inject<ILayout>(layoutKey) as ILayout;
 
 <template>
   <div class="app-layout">
-    <AppHeader class="bg-primary text-white" />
-    <AppDrawer v-model="$layout.leftDrawer.isVisible" class="bg-secondary" />
+    <AppDrawer
+      v-model="$layout.leftDrawer.isOpen"
+      side="left"
+      bgColor="var(--side-nav-bg-color)"
+    />
+    <AppHeader />
     <slot></slot>
   </div>
 </template>

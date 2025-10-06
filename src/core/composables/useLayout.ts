@@ -4,8 +4,10 @@ function useLayout() {
       height: "",
     },
     leftDrawer: {
-      isVisible: true,
+      isOpen: true,
       isFixed: false,
+      maxWidth: "15rem",
+      minWidth: "6rem",
       width: "",
     },
   });

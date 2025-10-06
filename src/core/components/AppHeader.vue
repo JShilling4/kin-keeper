@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { layoutKey, ICON_NAMES, type ILayout } from "@/core/types";
+import { layoutKey, type ILayout } from "@/core/types";
 
 const { height = "5rem" } = defineProps<{ height?: string }>();
 
@@ -12,23 +12,11 @@ watch(
   },
   { immediate: true }
 );
-
-function toggleLeftDrawer() {
-  $layout.leftDrawer.isVisible = !$layout.leftDrawer.isVisible;
-}
 </script>
 
 <template>
   <header class="app-header">
-    <div class="fit flex items-center px-sm">
-      <BaseIcon
-        v-if="!$layout.leftDrawer.isFixed"
-        :name="ICON_NAMES.Menu"
-        color="#fff"
-        size="2x"
-        class="left-drawer-toggle"
-        @click="toggleLeftDrawer"
-      />
+    <div class="app-header-content">
       <div class="app-header-title">Kin Keeper</div>
     </div>
   </header>
@@ -38,13 +26,24 @@ function toggleLeftDrawer() {
 .app-header {
   position: fixed;
   top: 0;
+  left: v-bind("$layout.leftDrawer.width");
   width: 100%;
   height: v-bind(height);
   z-index: 2000;
+  background-color: var(--tertiary-color);
+  transition: all 0.3s ease-in-out;
+
+  &-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0 var(--space-sm);
+  }
 
   &-title {
     color: #fff;
-    margin-left: var(--space-sm);
+    transition: margin-left 0.3s ease-in-out;
   }
 }
 </style>

@@ -7,7 +7,9 @@ export interface ILayout {
     height: string;
   };
   leftDrawer: {
-    isVisible: boolean;
+    isOpen: boolean;
+    maxWidth: string;
+    minWidth: string;
     width: string;
     isFixed: boolean;
   };

@@ -1,33 +1,27 @@
 <script setup lang="ts">
-import { layoutKey, type ILayout } from "@/core/types";
+import { ICON_NAMES, layoutKey, type ILayout } from "@/core/types";
+
+export interface AppDrawerProps {
+  modelValue: boolean;
+  side: "left" | "right";
+  bgColor?: string;
+  fixed?: boolean;
+}
 
 const {
   modelValue,
-  side = "left",
-  width = "15rem",
+  side,
+  bgColor,
   fixed = false,
-} = defineProps<{
-  modelValue: boolean;
-  side?: "left" | "right";
-  width?: string;
-  fixed?: boolean;
-}>();
+} = defineProps<AppDrawerProps>();
 
 const $layout = inject<ILayout>(layoutKey) as ILayout;
 
 watch(
-  () => width,
-  (newValue) => {
-    $layout.leftDrawer.width = newValue;
-  },
-  { immediate: true }
-);
-
-watch(
   () => modelValue,
   (show) => {
-    if (show) $layout.leftDrawer.width = width;
-    else $layout.leftDrawer.width = "0";
+    if (show) $layout.leftDrawer.width = $layout.leftDrawer.maxWidth;
+    else $layout.leftDrawer.width = $layout.leftDrawer.minWidth;
   },
   { immediate: true }
 );
@@ -40,27 +34,52 @@ watch(
   },
   { immediate: true }
 );
+
+function toggleLeftDrawer() {
+  $layout.leftDrawer.isOpen = !$layout.leftDrawer.isOpen;
+}
 </script>
 
 <template>
   <aside :class="['app-drawer', { 'app-drawer--hidden': !modelValue }]">
-    <div class="app-drawer__content"></div>
+    <BaseIcon
+      v-if="!$layout.leftDrawer.isFixed"
+      :name="ICON_NAMES.Menu"
+      color="#fff"
+      size="2x"
+      class="app-drawer-toggle"
+      @click="toggleLeftDrawer"
+    />
+    <div class="app-drawer-content">
+      <SideNavigation :mini-mode="$layout.leftDrawer.isOpen" />
+    </div>
   </aside>
 </template>
 
 <style lang="scss" scoped>
 .app-drawer {
-  position: fixed;
-  top: v-bind("$layout.header.height");
+  position: v-bind("fixed ? 'fixed' : 'initial'");
+  top: 0;
   left: v-bind("side === 'left' ? 0 : 'initial'");
   right: v-bind("side === 'right' ? 0 : 'initial'");
   height: calc(100vh - 5rem);
-  width: v-bind(width);
+  width: v-bind("$layout.leftDrawer.width");
   overflow: hidden;
+  background-color: v-bind(bgColor);
   transition: width 0.3s ease-in-out;
 
   &--hidden {
-    width: 0;
+    width: v-bind("$layout.leftDrawer.minWidth");
+  }
+
+  &-content {
+    padding-top: v-bind("$layout.header.height");
+  }
+
+  &-toggle {
+    position: absolute;
+    top: calc(v-bind("$layout.header.height") / 2 - 15px);
+    left: var(--space-sm);
   }
 }
 </style>
